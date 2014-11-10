@@ -8,7 +8,16 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     minifyCSS = require('gulp-minify-css'),
     sourcemaps = require('gulp-sourcemaps'),
+    beep = require('beepbeep'),
+    gutil = require('gulp-util'),
+    plumber = require('gulp-plumber'),
     package = require('./package.json');
+
+var onError = function (err) {
+    beep([0, 0]);
+    gutil.log(gutil.colors.green(err));
+    this.emit('end');
+};
 
 
 var banner = [
@@ -25,9 +34,12 @@ var banner = [
 
 gulp.task('css', function () {
     return gulp.src('src/scss/style.scss')
-    //.pipe(header(banner, { package : package }))
+    .pipe(plumber({
+        errorHandler: onError
+    }))
+    .pipe(header(banner, { package : package }))
     .pipe(sourcemaps.init())
-    .pipe(sass({errLogToConsole: true}))
+    .pipe(sass())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write({includeContent: false, sourceRoot: '.'}))
     .pipe(sourcemaps.init({loadMaps: true}))

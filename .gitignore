@@ -18,8 +18,8 @@ node_modules
 
 ## Build Files
 
-build/css
-build/js
+build/assets/css
+build/assets/js
 
 ## Bower
 src/components
