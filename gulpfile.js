@@ -28,11 +28,15 @@ gulp.task('css', function () {
     //.pipe(header(banner, { package : package }))
     .pipe(sourcemaps.init())
     .pipe(sass({errLogToConsole: true}))
-    .pipe(sourcemaps.write())
-    //.pipe(autoprefixer('last 4 version'))
-    .pipe(gulp.dest('build/assets/css'))
-    //.pipe(minifyCSS())
     .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '.'}))
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(autoprefixer({browsers: ['last 1 version', 'iOS 6'], cascade: false}))
+    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../../src/scss'}))
+
+
+    //.pipe(minifyCSS()) See https://github.com/jonathanepollack/gulp-minify-css/issues/34
+
     .pipe(gulp.dest('build/assets/css'))
     .pipe(browserSync.reload({stream:true}));
 });

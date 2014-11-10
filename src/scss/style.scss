@@ -1,14 +1,14 @@
 /* === 3rd Party ===*/
-@import 'thirdparty/normalize.scss';
+@import 'thirdparty/_normalize.scss';
 
 /* === Mixins ===*/
-@import 'mixins/breakpoint.scss';
-@import 'mixins/visuallyhidden.scss';
+@import 'mixins/_breakpoint.scss';
+@import 'mixins/_visuallyhidden.scss';
 
 /* === Modules ===*/
-@import 'modules/base.scss';
+@import 'modules/_base.scss';
 
 /* === Partials ===*/
-@import 'partials/header.scss';
-@import 'partials/footer.scss';
+@import 'partials/_header.scss';
+@import 'partials/_footer.scss';
 
