@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     beep = require('beepbeep'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
+    filter = require('gulp-filter'),
     package = require('./package.json');
 
 var onError = function (err) {
@@ -50,6 +51,7 @@ gulp.task('css', function () {
     //.pipe(minifyCSS()) See https://github.com/jonathanepollack/gulp-minify-css/issues/34
 
     .pipe(gulp.dest('build/assets/css'))
+    .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
 });
 
