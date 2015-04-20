@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     header  = require('gulp-header'),
+    fileinclude = require('gulp-file-include'),
     rename = require('gulp-rename'),
     minifyCSS = require('gulp-minify-css'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -19,6 +20,8 @@ var onError = function (err) {
     gutil.log(gutil.colors.green(err));
     this.emit('end');
 };
+
+var buildFolder = './build/'
 
 
 var banner = [
@@ -55,6 +58,19 @@ gulp.task('css', function () {
     .pipe(browserSync.reload({stream:true}));
 });
 
+// Header/Footer added to html build files
+gulp.task('html', function () {
+
+    return gulp.src(['./src/*.html'])
+    .pipe(gulp.dest(buildFolder))
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: './src/partials/'
+    }))
+    .pipe(gulp.dest(buildFolder));
+});
+
+
 gulp.task('js',function(){
   gulp.src('src/js/scripts.js')
     .pipe(jshint('.jshintrc'))
@@ -79,8 +95,8 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['css', 'js', 'browser-sync'], function () {
+gulp.task('default', ['html','css', 'js', 'browser-sync'], function () {
     gulp.watch("src/scss/**/*.{scss,sass}", ['css']);
-    gulp.watch("src/js/*.js", ['js']);
-    gulp.watch("build/*.html", ['bs-reload']);
+    gulp.watch("src/js/*.js", ['js','bs-reload']);
+    gulp.watch("src/**/*.html", ['html','bs-reload']);
 });
