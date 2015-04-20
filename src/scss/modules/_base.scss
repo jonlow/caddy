@@ -5,9 +5,18 @@
 }
 
 html {
-  font-size: 62.5%;
   background: #ff5f69;
 }
 
 body {
+}
+
+.demo-grid {
+	color: darken(#fbdee5,80%);
+	margin-top: 20px;
+
+	.column {
+
+		background: lighten(#ff5f69, 10%);
+	}
 }
