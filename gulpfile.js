@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
+    changed      = require('gulp-changed'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
@@ -58,7 +59,21 @@ gulp.task('css', function () {
     .pipe(browserSync.reload({stream:true}));
 });
 
-// Header/Footer added to html build files
+var staticAssets = ['src/*.ico',
+                    'src/fonts/**/*',
+                    'src/img/**/*']
+
+gulp.task('assets',['html'], function(){
+
+    return gulp.src(staticAssets , { base: './src' })
+    .pipe(plumber({
+        errorHandler: onError
+    }))
+    //.pipe(changed(buildFolder + 'assets/'))
+    .pipe(gulp.dest(buildFolder + 'assets/'));
+});
+
+// Build HTML with partials
 gulp.task('html', function () {
 
     return gulp.src(['./src/*.html'])
@@ -95,8 +110,9 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['html','css', 'js', 'browser-sync'], function () {
+gulp.task('default', ['html','css', 'js','assets', 'browser-sync'], function () {
     gulp.watch("src/scss/**/*.{scss,sass}", ['css']);
     gulp.watch("src/js/*.js", ['js','bs-reload']);
+    gulp.watch(staticAssets, ['assets','bs-reload']);
     gulp.watch("src/**/*.html", ['html','bs-reload']);
 });
