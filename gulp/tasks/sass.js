@@ -18,11 +18,9 @@ gulp.task('sass', function () {
     }))
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '.'}))
-    .pipe(sourcemaps.init({loadMaps: true}))
-    //.pipe(autoprefixer({browsers: ['last 1 version', 'iOS 6'], cascade: false}))
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../../src/scss'}))
+    .pipe(sourcemaps.write('.', {sourceRoot: '../../src/scss'}))
     .pipe(gulp.dest(config.appFolder + 'assets/css'))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
