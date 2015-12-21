@@ -9,7 +9,7 @@ gulp.task('js',function(){
   gulp.src('src/js/scripts.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(gulp.dest('build/assets/js'))
+    .pipe(gulp.dest(config.appFolder + 'assets/js'))
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.appFolder + 'assets/js'))

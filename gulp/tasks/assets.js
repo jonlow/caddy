@@ -12,6 +12,6 @@ gulp.task('moveAssets',['htmlBuild'], function(){
     .pipe(plumber({
         errorHandler: handleErrors
     }))
-    .pipe(changed(config.appFolder))
-    .pipe(gulp.dest(config.appFolder));
+    .pipe(changed(config.appFolder + 'assets'))
+    .pipe(gulp.dest(config.appFolder + 'assets'));
 });
