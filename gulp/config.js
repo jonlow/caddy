@@ -2,7 +2,7 @@ module.exports = {
 
   srcFolder       : 'src/',
 
-  appFolder       : 'dist/build/',
+  appFolder       : 'dist/',
 
   staticAssets    : ['src/*.ico',
                     'src/fonts/**/*',

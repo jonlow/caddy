@@ -6,7 +6,7 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync');
 
 // Move static assets to app folder
-gulp.task('moveAssets',['htmlBuild'], function(){
+gulp.task('moveAssets', function(){
 
     return gulp.src(config.staticAssets , { base: './src' })
     .pipe(plumber({
