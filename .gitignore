@@ -20,7 +20,7 @@ node_modules
 dist
 
 ## Bower
-src/components
+bower_components
 
 ## Sass
 .sass-cache
