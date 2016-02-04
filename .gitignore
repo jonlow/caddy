@@ -16,9 +16,8 @@ npm-debug.log
 node_modules
 
 
-## Build Files
-
-build
+## Dist Files
+dist
 
 ## Bower
 src/components
