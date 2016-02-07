@@ -12,16 +12,16 @@ var gulp         = require('gulp'),
 // SASS CSS Build
 gulp.task('sass', function () {
 
-    return gulp.src(['src/scss/styles.scss'])
+    return gulp.src(['./assets/styles/main.scss'])
     .pipe(plumber({
         errorHandler: handleErrors
     }))
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write('.', {sourceRoot: '../../src/scss'}))
-    .pipe(gulp.dest(config.appFolder + 'assets/css'))
+    //.pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write('.', {sourceRoot: 'assets/styles/'}))
+    .pipe(gulp.dest(config.appFolder + 'styles'))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
 });
@@ -29,7 +29,7 @@ gulp.task('sass', function () {
 // Desktop Only SASS CSS Build
 gulp.task('sass-desktop', function () {
 
-    return gulp.src(['src/scss/desktop.scss'])
+    return gulp.src(['src/assets/scss/desktop.scss'])
     .pipe(plumber({
         errorHandler: handleErrors
     }))
@@ -39,7 +39,7 @@ gulp.task('sass-desktop', function () {
     .pipe(sourcemaps.write({includeContent: false, sourceRoot: '.'}))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(autoprefixer({browsers: ['last 1 version', 'iOS 6'], cascade: false}))
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../../src/scss'}))
+    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../../src/assets/scss'}))
     .pipe(gulp.dest(config.appFolder + 'assets/css'))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));

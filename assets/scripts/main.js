@@ -4,7 +4,7 @@
 
   $(function () {
     // Caddy
-    alert('hi');
+    console.log('yo');
   });
 
 })(jQuery, window, document);

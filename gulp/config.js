@@ -4,7 +4,6 @@ module.exports = {
 
   appFolder       : 'dist/',
 
-  staticAssets    : ['src/*.ico',
-                    'src/fonts/**/*',
-                    'src/img/**/*']
+  staticAssets    : ['src/assets/*.ico',
+                     'src/assets/fonts/**/*']
 };
