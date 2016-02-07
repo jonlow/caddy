@@ -34,8 +34,6 @@ var enabled = {
 
 var jsTasks = function(filename) {
 
-  console.log(filename);
-
   return lazypipe()
     .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
@@ -65,7 +63,6 @@ gulp.task('scripts', function() {
         .pipe(jsTasks(dep.name))
     );
   });
-
 
   return merged
     .pipe(writeToManifest('scripts'));
