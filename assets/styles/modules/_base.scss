@@ -5,18 +5,17 @@
 }
 
 html {
-  background: #ff5f69;
+  background: $bg-ch1;
 }
 
 body {
 }
 
 .demo-grid {
-	color: darken(#fbdee5,80%);
+	color: #fff;;
 	margin-top: 20px;
 
 	.column {
 
-		background: lighten(#ff5f69, 10%);
 	}
 }

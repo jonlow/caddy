@@ -20,7 +20,7 @@ gulp.task('sass', function () {
     .pipe(sass())
     .pipe(autoprefixer())
     //.pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write('.', {sourceRoot: 'assets/styles/'}))
+    .pipe(sourcemaps.write('.', {sourceRoot: '../../assets/styles/'}))
     .pipe(gulp.dest(config.appFolder + 'styles'))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));

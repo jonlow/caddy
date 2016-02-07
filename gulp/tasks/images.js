@@ -7,7 +7,7 @@ var path = manifest.paths;
 var globs = manifest.globs;
 
 gulp.task('images', function() {
-  return gulp.src('src/' + globs.images)
+  return gulp.src(globs.images)
     .pipe(imagemin({
       progressive: true,
       interlaced: true,
