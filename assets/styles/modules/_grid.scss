@@ -122,8 +122,8 @@ select {
     margin-right: 0; }
   .row .row {
     width: auto;
-    margin-left: -0.9375em;
-    margin-right: -0.9375em;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
     margin-top: 0;
     margin-bottom: 0;
     max-width: none; }
@@ -144,8 +144,8 @@ select {
 
 .column,
 .columns {
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
+  padding-left: $gutter;
+  padding-right: $gutter;
   width: 100%;
   float: left; }
 
@@ -279,8 +279,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; }
 
   .small-1 {
@@ -395,8 +395,8 @@ select {
     margin-right: 0; }
   .row.small-uncollapse > .column,
   .row.small-uncollapse > .columns {
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; } }
 @media only screen and (min-width: 40.063em) {
   .medium-push-0 {
@@ -522,8 +522,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; }
 
   .medium-1 {
@@ -638,8 +638,8 @@ select {
     margin-right: 0; }
   .row.medium-uncollapse > .column,
   .row.medium-uncollapse > .columns {
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; }
 
   .push-0 {
@@ -885,8 +885,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; }
 
   .large-1 {
@@ -1001,8 +1001,8 @@ select {
     margin-right: 0; }
   .row.large-uncollapse > .column,
   .row.large-uncollapse > .columns {
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
+    padding-left: $gutter;
+    padding-right: $gutter;
     float: left; }
 
   .push-0 {

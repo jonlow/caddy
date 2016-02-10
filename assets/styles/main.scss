@@ -5,6 +5,7 @@
 @import 'mixins/_breakpoint.scss';
 @import 'mixins/_visuallyhidden.scss';
 @import 'mixins/_clearfix.scss';
+@import 'mixins/_helpers.scss';
 
 /* === Variables ===*/
 @import 'modules/_variables.scss';
@@ -12,6 +13,7 @@
 /* === Modules ===*/
 @import 'modules/_grid.scss';
 @import 'modules/_base.scss';
+@import 'modules/_icons.scss';
 @import 'modules/_layout.scss';
 @import 'modules/_blocks.scss';
 

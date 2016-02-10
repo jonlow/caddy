@@ -3,6 +3,8 @@ var gulp = require('gulp'),
 
 gulp.task('build', ['sass',
                     'scripts',
+                    'images',
+                    'fonts',
                     'htmlBuild',
                     'moveAssets']);
 
