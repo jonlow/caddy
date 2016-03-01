@@ -21,8 +21,5 @@
     "jquery.js": {
       "bower": ["jquery"]
     }
-  },
-  "config": {
-    "devUrl": "oakford.dev"
   }
 }
