@@ -7,7 +7,7 @@ var path = manifest.paths;
 gulp.task('watch', function() {
     gulp.watch(path.source + 'styles/**/*.{scss,sass}', ['sass']);
     //gulp.watch(config.srcFolder + 'assets/js/**/*.js', ['js']);
-    gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
+    gulp.watch([path.source + 'scripts/**/*'], ['scripts']);
     gulp.watch([path.source + 'images/**/*'], ['images']);
     gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
 

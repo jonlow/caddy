@@ -8,7 +8,7 @@
 	font-size: 68px;
 	line-height: 1.3;
 	font-family: 'Open Sans', sans-serif;
-	color: #fff;
+	color: blue;
 	text-transform: uppercase;
 	font-style: italic;
 	font-weight: 800;
@@ -26,8 +26,14 @@
 	font-style: italic;
 	display: block;
 	margin: 0 auto;
+	transition: all 400ms;
 	text-align: center;
 	text-transform: none;
+	
+	&:hover {
+		color: green;
+		transform: translateX(29px);
+	}
 
 	@include bp (medium) {
 		display: inline-block;

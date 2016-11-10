@@ -12,16 +12,15 @@ var gulp         = require('gulp'),
 // SASS CSS Build
 gulp.task('sass', function () {
 
-    return gulp.src(['./assets/styles/main.scss'])
+    return gulp.src('assets/styles/main.scss', {base: 'assets/'})
     .pipe(plumber({
         errorHandler: handleErrors
     }))
     .pipe(sourcemaps.init())
-    .pipe(sass())
     .pipe(autoprefixer())
-    //.pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write('.', {sourceRoot: '../../assets/styles/'}))
-    .pipe(gulp.dest(config.appFolder + 'styles'))
+    .pipe(sass())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.appFolder))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
 });
