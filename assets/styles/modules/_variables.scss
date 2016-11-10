@@ -10,10 +10,13 @@ $max-width: 1280px;
 	   Screen Sizes
 ************************/
 
-$sc-small: 480px;
-$sc-smallish: 600px;
+$sc-small: 375px;
 $sc-medium: 768px;
 $sc-large: 1024px;
+$sc-big: 1280px;
+$sc-bigger: 1440px;
+$sc-huge: 1900px;
+
 
 
 /************************
@@ -21,6 +24,10 @@ $sc-large: 1024px;
 ************************/
 
 $teal: #54c7d1;
+$primaryColor: $teal;
 
+/************************
+     Fonts
+************************/
 
-$bg-ch1: $teal;
+$primaryFont: 'aktiv-grotesk', sans-serif;
