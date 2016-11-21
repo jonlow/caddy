@@ -18,28 +18,9 @@ gulp.task('sass', function () {
     }))
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.appFolder))
-    .pipe(filter('**/*.css')) // Filtering stream to only css files
-    .pipe(browserSync.reload({stream:true}));
-});
-
-// Desktop Only SASS CSS Build
-gulp.task('sass-desktop', function () {
-
-    return gulp.src(['src/assets/scss/desktop.scss'])
-    .pipe(plumber({
-        errorHandler: handleErrors
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '.'}))
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(autoprefixer({browsers: ['last 1 version', 'iOS 6'], cascade: false}))
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../../src/assets/scss'}))
-    .pipe(gulp.dest(config.appFolder + 'assets/css'))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
 });
