@@ -7,10 +7,7 @@ var gulp            = require('gulp'),
     concat          = require('gulp-concat'),
     rename          = require('gulp-rename'),
     merge           = require('merge-stream'),
-    gulpif          = require('gulp-if'),
-    sourcemaps      = require('gulp-sourcemaps'),
-    lazypipe        = require('lazypipe');
-    rev             = require('gulp-rev');
+    sourcemaps      = require('gulp-sourcemaps');
 
 gulp.task('scripts', function() {
 
