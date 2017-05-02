@@ -7,7 +7,6 @@
 	text-align: center;
 	font-size: 68px;
 	line-height: 1.3;
-	font-family: 'Open Sans', sans-serif;
 	color: blue;
 	text-transform: uppercase;
 	font-style: italic;
@@ -22,14 +21,13 @@
 	color: #fff;
 	font-size: 18px;
 	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
 	font-style: italic;
 	display: block;
 	margin: 0 auto;
 	transition: all 400ms;
 	text-align: center;
 	text-transform: none;
-	
+
 	&:hover {
 		color: green;
 		transform: translateX(29px);

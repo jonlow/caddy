@@ -5,8 +5,7 @@ gulp.task('build', ['sass',
                     'scripts',
                     'images',
                     'fonts',
-                    'htmlBuild',
-                    'moveAssets']);
+                    'htmlBuild']);
 
 gulp.task('build-dev', function(callback) {
 
