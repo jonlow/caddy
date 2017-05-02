@@ -13,6 +13,7 @@
     "asset-builder": "^1.1.0",
     "beepbeep": "^1.2.0",
     "browser-sync": "^2.18.8",
+    "bs-html-injector": "^3.0.3",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^2.3.1",
