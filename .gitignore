@@ -1,5 +1,8 @@
 # Caddy
 
+## Deploy
+.deploy.example
+
 ## Node.js
 lib-cov
 *.seed
