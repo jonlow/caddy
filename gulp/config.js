@@ -6,6 +6,6 @@ module.exports = {
 
   scripts : [
     'assets/scripts/main.js',
-    'assets/scripts/jon.js',
+    //'assets/scripts/jon.js',
   ]
 };

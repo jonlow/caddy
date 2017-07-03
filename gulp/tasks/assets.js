@@ -11,7 +11,13 @@ var gulp         = require('gulp'),
     filter       = require('gulp-filter'),
     jshint          = require('gulp-jshint'),
     uglify          = require('gulp-uglify'),
-    concat          = require('gulp-concat');
+    concat          = require('gulp-concat'),
+    CacheBuster = require('gulp-cachebust'),
+    util = require('gulp-util');
+
+
+var bProduction = util.env.production,
+    cachebust = new CacheBuster();
 
 // Add Partials to HTML files
 gulp.task('htmlBuild', function() {
@@ -22,6 +28,7 @@ gulp.task('htmlBuild', function() {
       prefix: '@@',
       basepath: config.srcFolder + 'partials/'
     }))
+    .pipe(bProduction ? cachebust.references() : util.noop())
     .pipe(gulp.dest(config.appFolder));
 });
 
@@ -36,7 +43,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
     .pipe(sass({outputStyle: 'compressed'}))
-    .pipe(sourcemaps.write('.'))
+    .pipe(bProduction ? cachebust.resources() : sourcemaps.write('.'))
     .pipe(gulp.dest(config.appFolder))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
     .pipe(browserSync.reload({stream:true}));
@@ -48,20 +55,11 @@ gulp.task('scripts', function() {
 
    return gulp.src(config.scripts, {base: 'assets/'})
     .pipe(sourcemaps.init())
-    .pipe(concat('scripts/main.min.js'))
-    .pipe(sourcemaps.write('.'))
+    .pipe(concat('scripts/main.js'))
+    .pipe(bProduction ? uglify({preserveComments: 'license'}) : sourcemaps.write('.'))
+    .pipe(bProduction ? cachebust.resources() : util.noop())
     .pipe(gulp.dest(config.appFolder))
-    .pipe(browserSync.reload({stream:true}));
-  //
+    .pipe(bProduction ? util.noop() : browserSync.reload({stream:true}));
 });
 
-gulp.task('scripts-production', function() {
-
-   return gulp.src(config.scripts, {base: 'assets/'})
-    .pipe(uglify({preserveComments: 'license'}))
-    .pipe(concat('scripts/main.min.js'))
-    .pipe(gulp.dest(config.appFolder))
-    .pipe(browserSync.reload({stream:true}));
-  //
-});
 
