@@ -1,4 +1,5 @@
 var gulp         = require('gulp'),
+    config = require('../config'),
     imagemin     = require('gulp-imagemin'),
     browserSync  = require('browser-sync');
 
