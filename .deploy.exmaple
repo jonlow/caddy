@@ -1,0 +1,1 @@
+rsync -avz --no-perms --no-owner --no-group  "ssh -i /Users/jlow/Dropbox/Amazon/Keys/AvenueStaging.pem" dist/ someguy@myserver.com:/var/www/website/
