@@ -3,15 +3,13 @@ var gulp   = require('gulp'),
     htmlInjector = require("bs-html-injector");
 
 
-var manifest = require('asset-builder')('./assets/manifest.json');
-var path = manifest.paths;
-
+var assetFolder = 'assets/';
 
 gulp.task('watch', function() {
-    gulp.watch(path.source + 'styles/**/*.{scss,sass}', ['sass']);
-    gulp.watch([path.source + 'scripts/**/*'], ['scripts']);
-    gulp.watch([path.source + 'images/**/*'], ['images']);
-    gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
+    gulp.watch(assetFolder + 'styles/**/*.{scss,sass}', ['sass']);
+    gulp.watch(assetFolder + 'scripts/**/*', ['scripts']);
+    gulp.watch(assetFolder + 'images/**/*', ['images']);
+    gulp.watch(assetFolder + 'fonts/**/*', ['fonts']);
     gulp.watch(config.srcFolder + '**/*.html', ['htmlBuild']);
     gulp.watch(config.appFolder + '**/*.html', htmlInjector);
 });
