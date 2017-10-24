@@ -9,9 +9,9 @@ var gulp         = require('gulp'),
     handleErrors = require('../util/handleErrors'),
     browserSync  = require('browser-sync'),
     filter       = require('gulp-filter'),
-    jshint          = require('gulp-jshint'),
-    uglify          = require('gulp-uglify'),
-    concat          = require('gulp-concat'),
+    uglify       = require('gulp-uglify'),
+    concat       = require('gulp-concat'),
+    babel        = require('gulp-babel');
     CacheBuster = require('gulp-cachebust'),
     util = require('gulp-util');
 
@@ -56,7 +56,10 @@ gulp.task('scripts', function() {
    return gulp.src(config.scripts, {base: 'assets/'})
     .pipe(sourcemaps.init())
     .pipe(concat('scripts/main.js'))
-    .pipe(bProduction ? uglify({preserveComments: 'license'}) : sourcemaps.write('.'))
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .pipe(bProduction ? uglify() : sourcemaps.write('.'))
     .pipe(bProduction ? cachebust.resources() : util.noop())
     .pipe(gulp.dest(config.appFolder))
     .pipe(bProduction ? util.noop() : browserSync.reload({stream:true}));

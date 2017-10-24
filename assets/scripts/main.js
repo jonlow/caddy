@@ -1,26 +1,11 @@
-
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(function() {
-      return factory(root);
-    });
-  } else if (typeof exports === 'object') {
-    module.exports = factory;
-  } else {
-    root.caddy = factory(root);
+class Caddy {
+  constructor() {
+    console.log('caddy constructor');
   }
-})(this, function (root) {
 
-  'use strict';
+  init() {
+    console.log('caddy init');
+  }
+};
 
-  var caddy = {
-
-    'init' : function () {
-      console.log('hi dude');
-    }
-
-  };
-
-  return caddy;
-
-});
+var caddy = new Caddy();
