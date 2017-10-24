@@ -5,7 +5,11 @@ class Caddy {
 
   init() {
     console.log('caddy init');
+
+    document.body.addEventListener('click', e => {
+      console.log('Body Click', this);
+    });
   }
 };
 
-var caddy = new Caddy();
+const caddy = new Caddy();
