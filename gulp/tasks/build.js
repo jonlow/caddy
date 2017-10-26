@@ -6,7 +6,7 @@ gulp.task("build", function(callback) {
 });
 
 gulp.task("build-dev", function(callback) {
-  runSequence("clean-all", ["build", "browserSync"], callback);
+  runSequence("clean-all", "build", "browserSync", callback);
 });
 
 gulp.task("build-dist", ["build"], function() {
