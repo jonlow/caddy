@@ -13,6 +13,7 @@ var gulp         = require('gulp'),
     concat       = require('gulp-concat'),
     babel        = require('gulp-babel');
     CacheBuster = require('gulp-cachebust'),
+    gulpif = require('gulp-if'),
     util = require('gulp-util');
 
 
@@ -41,8 +42,8 @@ gulp.task('sass', function () {
         errorHandler: handleErrors
     }))
     .pipe(sourcemaps.init())
-    .pipe(autoprefixer())
     .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(gulpif(bProduction, autoprefixer({browsers:'last 2 versions',cascade: false})))
     .pipe(bProduction ? cachebust.resources() : sourcemaps.write('.'))
     .pipe(gulp.dest(config.appFolder))
     .pipe(filter('**/*.css')) // Filtering stream to only css files
