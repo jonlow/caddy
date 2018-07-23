@@ -1,6 +1,6 @@
 var gulp         = require('gulp'),
     config       = require('../config'),
-    fileinclude  = require('gulp-file-include')
+    fileinclude  = require('gulp-file-include'),
     autoprefixer = require('gulp-autoprefixer'),
     plumber      = require('gulp-plumber'),
     rename       = require('gulp-rename'),
@@ -26,6 +26,9 @@ var bProduction = argv.production,
 gulp.task('htmlBuild', function() {
 
   return gulp.src([config.srcFolder + '*.html'])
+  .pipe(plumber({
+        errorHandler: handleErrors
+    }))
     .pipe(gulp.dest(config.appFolder))
     .pipe(fileinclude({
       prefix: '@@',
