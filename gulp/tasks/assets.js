@@ -14,11 +14,13 @@ var gulp         = require('gulp'),
     babel        = require('gulp-babel');
     CacheBuster = require('gulp-cachebust'),
     gulpif = require('gulp-if'),
-    util = require('gulp-util');
+    noop = require("gulp-noop"),
+    argv = require('yargs').argv;
 
 
-var bProduction = util.env.production,
+var bProduction = argv.production,
     cachebust = new CacheBuster();
+
 
 // Add Partials to HTML files
 gulp.task('htmlBuild', function() {
@@ -29,7 +31,7 @@ gulp.task('htmlBuild', function() {
       prefix: '@@',
       basepath: config.srcFolder + 'partials/'
     }))
-    .pipe(bProduction ? cachebust.references() : util.noop())
+    .pipe(bProduction ? cachebust.references() : noop())
     .pipe(gulp.dest(config.appFolder));
 });
 
@@ -61,9 +63,9 @@ gulp.task('scripts', function() {
         presets: ['env']
     }))
     .pipe(bProduction ? uglify() : sourcemaps.write('.'))
-    .pipe(bProduction ? cachebust.resources() : util.noop())
+    .pipe(bProduction ? cachebust.resources() : noop())
     .pipe(gulp.dest(config.appFolder))
-    .pipe(bProduction ? util.noop() : browserSync.reload({stream:true}));
+    .pipe(bProduction ? noop() : browserSync.reload({stream:true}));
 });
 
 

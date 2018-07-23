@@ -1,9 +1,11 @@
 var beep = require('beepbeep');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 
 module.exports = function(err) {
 
+    console.log('error');
+
     beep([0, 0]);
-    gutil.log(gutil.colors.green(err));
+    log(err);
     this.emit('end');
 };
